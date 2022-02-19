@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TestTask.ViewModels.DataViewModel>
+
+
+<!doctype html>
+<html>
+    <head>
+        <title>Test Task</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Filter by country: @Html.TextBox("filter")
+            <input type="submit" value="Filter" />
+        </p>
+    }
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Visitor First Name</th>
+            <th scope="col">Visitor Last Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Comment</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.VisitorFirstName</td>
+                <td>@item.VisitorLastName</td>
+                <td>@item.CountryName</td>
+                <td>@item.CityName</td>
+                <td>@item.CityRate</td>
+                <td>@item.CityComment</td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+</body>
+</html>
