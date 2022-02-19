@@ -1,13 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using TestTask.Models;
-using TestTask.Services;
+using BLL.Services;
 
 namespace TestTask.Controllers
 {

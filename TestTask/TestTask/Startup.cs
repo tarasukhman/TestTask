@@ -1,16 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BLL.Services;
+using DAL.Context;
 using Microsoft.EntityFrameworkCore;
-using TestTask.Context;
-using TestTask.Services;
+using Mapper = BLL.Mapping.Mapper;
 
 namespace TestTask
 {
@@ -32,6 +28,8 @@ namespace TestTask
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IService, Service>();
+
+            services.AddAutoMapper(typeof(Mapper));
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
